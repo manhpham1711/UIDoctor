@@ -1,121 +1,187 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, TextInput, ScrollView } from 'react-native'
 
 export default function App() {
   return (
-    <View>
-      <Image source={require('./src/image/contact-us.jpg')} style={styles.imageBackground} style={{ height: 161}} />
+    <View style={styles.pageFinDoctor}>
       <View style={styles.header}>
         <TouchableOpacity>
-          <Image  source={require('./src/icon/left-arrow.png')} style={styles.icon}/>
+          <Image source={require('./src/icon/menu.png')} style={styles.iconMenu}/>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Image  source={require('./src/icon/more.png')} style={styles.icon}/>
+          <Image source={require('./src/icon/profile.png')} style={{width: 45, height: 45}}/>
         </TouchableOpacity>
       </View>
-      <View style={styles.content}> 
-        <View style= {styles.infoDoctor}>
-          <Image source={require('./src/image/doctor.jpg')}  style={styles.imageDoctor}/>
-          <View style={styles.information}>
-            <Text style={styles.nameDoctor}>Bs. Nguyễn Thị Xuân Mai</Text>
-            <Text style={styles.specialized}>CK Răng - Bệnh viện Răng Hàm Mặt TP.HCM </Text>
-            <View style={styles.buttonConnect}>
-              <TouchableOpacity>
-                <Image source={require('./src/icon/phone-call.png')} style={styles.iconButton}/>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Image source={require('./src/icon/chat.png')} style={[styles.iconButton,{tintColor: '#FFB167'}]}/>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Image source={require('./src/icon/video-camera.png')} style={[styles.iconButton,{tintColor: '#F57E71'}]}/>
-              </TouchableOpacity>
-            </View>
-          </View>
+      <View style={styles.content}>
+        <Text style={styles.titlePage}>Tìm bác sĩ mong muốn của bạn</Text>
+        <View style={styles.inputSearch}>
+          <TextInput placeholder="Tìm kiếm bác sỹ" style={styles.input}/>
+          <TouchableOpacity style={styles.buttonSearch}>
+            <Image source={require('./src/icon/loupe.png')} style={styles.iconLoupe}/>
+          </TouchableOpacity>
         </View>
-        <View style={styles.brief_info}>
-          <Text style={styles.title}>Thông tin sơ lược</Text>
-          <Text style={styles.subtitle}>{'  '} Tiến sĩ Nguyễn Thị Xuân Mai là bác sĩ chuyên khoa răng hàng đầu. Cô ấy đã đạt được một số
-giải thưởng cho sự đóng góp tuyệt vời của cô ấy
-cánh đồng. Cô ấy sẵn sàng tư vấn riêng cho
-lịch trình nhất định.</Text>
-        </View>
-        <View style={styles.partCalender}>
-          <Text style={styles.title}>Lịch trình sắp tới</Text>
-          <View style={styles.calender}>
-            <View style={[styles.itemCalender, {backgroundColor: '#E9EFFD'}]}>
-              <View style={[styles.partDate,{backgroundColor: '#D8E3FF'}]}>
-                <Text style={[styles.date, {color: '#4B7FFB'}]}>12</Text>
-                <Text style={[styles.day, {color: '#4B7FFB'}]}>T1</Text>
-              </View>
-              <View style={styles.contentDate}>
-                <Text style={styles.titleContentDate}>Tư vấn</Text>
-                <View style={styles.dateTime}>
-                  <Text> Chủ nhật </Text>
-                  <Text> .  9 giờ - 11 giờ </Text>
+        <ScrollView>
+          <View style={styles.listFaculty}>
+            <Text style={styles.titlePart}>Danh sách chuyên khoa </Text>
+            <ScrollView horizontal={true}>
+              <View  style={styles.showListFaculty}>
+                <View style={styles.itemFaculty}>
+                  <View style={[styles.button, {backgroundColor: '#59A0E4'}]}>
+                    <Image source={require('./src/icon/molar-tooth.png')} style={styles.iconButton}/>
+                  </View>
+                  <Text style={styles.titleButton}>Răng</Text>
+                </View>
+                <View style={styles.itemFaculty}>
+                  <View style={[styles.button, {backgroundColor: '#FFB167'}]}>
+                    <Image source={require('./src/icon/heartbeat.png')} style={styles.iconButton}/>
+                  </View>
+                  <Text style={styles.titleButton}>Tim Mạch</Text>
+                </View>
+                <View style={styles.itemFaculty}>
+                  <View style={[styles.button, {backgroundColor: '#F57E71'}]}>
+                    <Image source={require('./src/icon/eye.png')} style={styles.iconButton}/>
+                  </View>
+                  <Text style={styles.titleButton}>Mắt</Text>
                 </View>
               </View>
-            </View>
-            <View style={[styles.itemCalender, {backgroundColor: '#FAF2EA'}]}>
-              <View style={[styles.partDate,{backgroundColor: '#FFEAD6'}]}>
-                <Text style={[styles.date, {color: '#FFB167'}]}>12</Text>
-                <Text style={[styles.day, {color: '#FFB167'}]}>T1</Text>
+            </ScrollView>
+          </View>
+          <View style={styles.listFaculty}>
+            <Text style={styles.titlePart}>Các Bác Sỹ hàng đầu </Text>
+            <View style={styles.contentPart}>
+              <View style={styles.item}>
+                <Image source={require('./src/image/doctor.jpg')} style={styles.imageItem}/>
+                <View style={styles.contentItem}>
+                  <Text style={styles.nameDoctor}>Bs. Nguyễn Thị Xuân Mai</Text>
+                  <Text style={styles.specialized}>CK Răng - Bệnh viện Răng Hàm Mặt TP.HCM</Text>
+                </View>
               </View>
-              <View style={styles.contentDate}>
-                <Text style={styles.titleContentDate}>Tư vấn</Text>
-                <View style={styles.dateTime}>
-                  <Text> Chủ nhật </Text>
-                  <Text> .  9 giờ - 11 giờ </Text>
+              <View style={styles.item}>
+                <Image source={require('./src/image/doctor.jpg')} style={styles.imageItem}/>
+                <View style={styles.contentItem}>
+                  <Text style={styles.nameDoctor}>Bs. Võ Thành Nhân</Text>
+                  <Text style={styles.specialized}>CK Tim mạch - Bệnh viện Đa khoa Quốc tế Vinmec Central Park</Text>
                 </View>
               </View>
             </View>
           </View>
-        </View>
+        </ScrollView>
       </View>
+      
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  header: {
-    marginTop: -145,
-    marginRight: 15,
+  pageFinDoctor: {
     marginLeft: 15,
+    marginRight: 15,
+    marginTop: 20,
+  },
+  header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  icon: {
-    width: 20,
-    height: 20,
-    tintColor: '#ffffff',
-  },
-  iconButton: {
+  iconMenu: {
+    marginTop: 10,
     width: 25,
     height: 25,
+    tintColor: '#292685',
   },
   content: {
-    marginTop: 105,
-    borderTopLeftRadius: 52,
-    borderTopRightRadius: 52,
-    backgroundColor: '#F9F9F9',
-  },
-  infoDoctor: {
-    marginLeft: 10,
-    marginRight: 10,
-    marginTop: 35,
-    flexDirection: 'row',
-  },
-  imageDoctor: {
-    width: 72,
-    height: 92,
-    borderRadius: 10,
-  },
-  information: {
-    width: Dimensions.get('window').width - 90,
-    marginLeft: 10,
+    marginTop: 5,
     flexDirection: 'column',
   },
-  nameDoctor: {
+  titlePage: {
+    fontSize: 26,
+    color: '#1E1C61',
+    fontWeight: 'bold',
+  },
+  inputSearch: {
+    flexDirection: 'row',
+  },
+  buttonSearch: {
+    backgroundColor: '#4B7FFB',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+    borderRadius: 52,
+  },
+  input: {
+    marginLeft: 10,
+    width: Dimensions.get('window').width - 110,
+  },
+  iconLoupe: {
+    marginLeft: 25,
+    marginRight: 25,
+    height: 20,
+    width: 20,
+    tintColor: '#ffff',
+  },
+  listFaculty: {
+    marginTop: 40,
+    flexDirection: 'column',
+  },
+  titlePart: {
+    color: '#000000',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  contentPart: {
     marginTop: 2,
+    marginLeft: 8,
+    flexDirection: 'column',
+  },
+  titleButton: {
+    marginTop: 12,
+    fontSize: 16,
+    textAlign: 'center',
+  },
+  item: {
+    marginTop: 15,
+    flexDirection: 'row',
+  },
+  imageItem: {
+    width: 54,
+    height: 65, 
+    borderRadius: 10,
+  },
+  contentItem: {
+    marginLeft: 10,
+    marginTop: 4,
+    flexDirection: 'column',
+    width: Dimensions.get('window').width - 90,
+  },
+  showListFaculty: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    marginTop: 17,
+    marginBottom: 10,
+  },
+  itemFaculty: {
+    marginLeft: 15,
+    marginRight: 35,
+    flexDirection: 'column',
+  },
+  
+  button:{
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignContent: 'center',
+    width: 80,
+    height: 70,
+  },
+  iconButton: {
+    marginBottom: 20,
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    width: 25,
+    height: 25,
+    tintColor: '#ffffff',
+  },
+  nameDoctor: {
     fontSize: 16,
     color: '#1E1C61',
   },
@@ -123,77 +189,6 @@ const styles = StyleSheet.create({
     marginTop: 3,
     fontSize: 11,
     color: '#1E1C61',
-  },
-  buttonConnect: {
-    marginRight: 100,
-    marginTop: 20,
-    marginLeft: 15,
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  brief_info: {
-    marginLeft: 10,
-    marginRight: 10,
-    marginTop: 17,
-  },
-  title:{
-    fontSize: 16,
-    color: '#1E1C61',
-    fontWeight: 'bold',
-  },
-  subtitle: {
-    marginTop: 10,
-    fontSize: 13,
-    marginRight: 10,
-  },
-  partCalender: {
-    flexDirection: 'column',
-    marginTop: 20,
-    marginLeft: 10,
-    marginRight: 10,
-  },
-  calender: {
-    marginTop: 9, 
-    marginLeft: 5,
-    flexDirection: 'column',
-  },
-  itemCalender: {
-    marginTop: 8,
-    flexDirection: 'row',
-    borderRadius: 8,
-  },
-  partDate: {
-    marginTop: 10,
-    marginBottom: 10,
-    marginLeft: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 7
-  },
-  date: {
-    paddingLeft: 15,
-    paddingRight: 15,
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-  day: {
-    fontSize: 14,
-    color: '#4B7FFB',
-    paddingBottom: 2,
-  },
-  contentDate: {
-    marginBottom: 10,
-    marginTop: 10,
-    marginLeft: 20,
-    flexDirection: 'column',
-  },
-  titleContentDate: {
-    fontSize: 16,
-    color: '#000000',
-  },
-  dateTime: {
-    marginTop: 5,
-    flexDirection: 'row',
   },
 
 })
